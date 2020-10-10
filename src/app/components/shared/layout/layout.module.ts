@@ -5,6 +5,7 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {RouterModule} from '@angular/router';
 import en from '@angular/common/locales/en';
+import {NgZorroAntdModule} from 'ng-zorro-antd';
 
 registerLocaleData(en);
 
@@ -14,6 +15,7 @@ registerLocaleData(en);
     CommonModule,
     FormsModule,
     RouterModule,
+    NgZorroAntdModule,
   ],
   declarations: [
     FooterComponent,
