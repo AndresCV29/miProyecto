@@ -1,1 +1,48 @@
 <p>events works!</p>
+
+<nz-radio-group [(ngModel)]="nzTabPosition" style="margin-bottom: 8px;">
+  <label nz-radio-button [nzValue]="'top'">Horizontal</label>
+  <label nz-radio-button [nzValue]="'left'">Vertical</label>
+</nz-radio-group>
+<nz-input-number style="float:right;" [nzMin]="0" [nzMax]="29" [(ngModel)]="selectedIndex"></nz-input-number>
+
+<nz-tabset style="height:220px;" [nzTabPosition]="nzTabPosition" [(nzSelectedIndex)]="selectedIndex" (nzSelectChange)="log([$event])">
+  <nz-tab
+    *ngFor="let tab of tabs"
+    [nzTitle]="tab.name"
+    [nzDisabled]="tab.disabled"
+    (nzSelect)="log(['select', tab])"
+    (nzClick)="log(['click', tab])"
+    (nzDeselect)="log(['deselect', tab])"
+  >
+    {{ tab.content }}
+  </nz-tab>
+</nz-tabset>
+
+<nz-calendar>
+  <ul *nzDateCell="let date" class="events">
+    <ng-container [ngSwitch]="date.getDate()">
+      <ng-container *ngSwitchCase="8">
+        <li *ngFor="let item of listDataMap.eight">
+          <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
+        </li>
+      </ng-container>
+      <ng-container *ngSwitchCase="10">
+        <li *ngFor="let item of listDataMap.ten">
+          <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
+        </li>
+      </ng-container>
+      <ng-container *ngSwitchCase="11">
+        <li *ngFor="let item of listDataMap.eleven">
+          <nz-badge [nzStatus]="item.type" [nzText]="item.content"></nz-badge>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+  <ng-container *nzMonthCell="let month">
+    <div *ngIf="getMonthData(month) as monthData" class="notes-month">
+      <section>{{ monthData }}</section>
+      <span>Backlog number</span>
+    </div>
+  </ng-container>
+</nz-calendar>

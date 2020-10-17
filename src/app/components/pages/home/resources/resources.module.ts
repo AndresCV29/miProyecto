@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {ResourcesComponent} from './resources.component';
 import {ResourcesPageRoutingModule} from './resources-routing.module';
 import {LayoutModule} from '../../../shared/layout/layout.module';
+import {NzAlertModule} from 'ng-zorro-antd';
 
 
 
@@ -14,6 +15,7 @@ import {LayoutModule} from '../../../shared/layout/layout.module';
     FormsModule,
     ResourcesPageRoutingModule,
     LayoutModule,
+    NzAlertModule,
   ],
   declarations: [ResourcesComponent],
   exports: [

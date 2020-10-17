@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {ContentComponent} from './content.component';
 import {ContentPageRoutingModule} from './content-routing.module';
 import {LayoutModule} from '../../../shared/layout/layout.module';
+import {NzAlertModule, NzListModule, NzSkeletonModule, NzSpinModule, NzSwitchModule} from 'ng-zorro-antd';
 
 
 
@@ -14,6 +15,11 @@ import {LayoutModule} from '../../../shared/layout/layout.module';
     FormsModule,
     ContentPageRoutingModule,
     LayoutModule,
+    NzSwitchModule,
+    NzListModule,
+    NzSkeletonModule,
+    NzSpinModule,
+    NzAlertModule,
   ],
   declarations: [ContentComponent],
   exports: [
