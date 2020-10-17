@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import en from '@angular/common/locales/en';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 
+
 registerLocaleData(en);
 
 @NgModule({
@@ -23,7 +24,7 @@ registerLocaleData(en);
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
 
   providers: [],

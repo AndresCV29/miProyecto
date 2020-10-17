@@ -5,7 +5,7 @@ import {NotFoundComponent} from './components/shared/not-found/not-found.compone
 
 const routes: Routes = [
   {
-    path: 'app',
+    path: '',
     component: AppComponent,
     children: [
       {
