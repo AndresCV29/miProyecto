@@ -12,6 +12,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
+import { DescripcionComponent } from './components/shared/modal/descripcion/descripcion.component';
 
 
 registerLocaleData(en);
@@ -20,6 +21,7 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     NotFoundComponent,
+    DescripcionComponent,
   ],
   imports: [
     BrowserModule,

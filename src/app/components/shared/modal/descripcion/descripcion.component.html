@@ -1,0 +1,11 @@
+<p>descripcion works!</p>
+
+  <nz-row >
+      <nz-card [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="{{celulares.catalogo[pos].titulo | titlecase}}" nzDescription="{{celulares.catalogo[pos].descripcion}}"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img src="{{celulares.catalogo[pos].imagen}}"/>
+      </ng-template>
+  </nz-row>
+

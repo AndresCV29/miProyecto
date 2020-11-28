@@ -1,0 +1,17 @@
+<p>shopall works!</p>
+
+<nz-row>
+  <div nz-col nzSpan="6"  *ngFor="let item of celulares.catalogo;let i=index" (click)="funcion(i)">
+    <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+      <nz-card-meta nzTitle="{{item.titulo}}" nzDescription="{{item.precio | currency: 'USD'}}"></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <img src="{{item.imagen}}"/>
+    </ng-template>
+  </div>
+</nz-row>
+
+
+
+
+

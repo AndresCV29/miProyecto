@@ -1,51 +1,58 @@
 import {Component, OnInit} from '@angular/core';
-import {TransferChange, TransferItem, TransferSelectChange} from 'ng-zorro-antd';
+import {CelularesService} from '../../../../services/celulares';
+import {DescripcionComponent} from '../../../shared/modal/descripcion/descripcion.component';
+import {NzModalService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.sass']
+  styleUrls: ['./client.component.sass'],
+  providers: [CelularesService]
 })
 export class ClientComponent implements OnInit {
-  isSpinning: any;
 
-  constructor() { }
+  pos: number;
 
-  list: TransferItem[] = [];
+  constructor(
+    public celulares: CelularesService,
+    public modalService: NzModalService,
+
+  ) { }
+
+
+
   disabled = false;
-  showSearch = false;
+  array = [
+    'banner 2.jpg',
+    'banner.png',
+    'REDMI NOTE 9 PRO SERIES.jpg',
+    'REDMI NOTE 9 SERIES.jpg',
+    'REDMI NOTE 8 PRO SERIES2.jpg',
+    'REDMI NOTE 8 SERIES.jpg',
+    'GALAXY A71 SERIES.jpg',
+    'GALAXY A70 SERIES.jpg',
+    'GALAXY A51 SERIES.jpg',
+    'GALAXY M31 SERIES.jpg',
+
+  ];
 
   ngOnInit(): void {
-    for (let i = 0; i < 20; i++) {
-      this.list.push({
-        key: i.toString(),
-        title: `content${i + 1}`,
-        description: `description of content${i + 1}`,
-        disabled: i % 4 === 0,
-        tag: ['cat', 'dog', 'bird'][i % 3]
-      });
-    }
 
-    [2, 3].forEach(idx => (this.list[idx].direction = 'right'));
   }
 
-  select(ret: TransferSelectChange): void {
-    console.log('nzSelectChange', ret);
+  funcion(i){
+    localStorage.setItem('pos', JSON.stringify(i));
+    this.pos=i;
+    this.showModalDescripcion(this.pos);
   }
 
-  change(ret: TransferChange): void {
-    console.log('nzChange', ret);
-    const listKeys = ret.list.map(l => l.key);
-    const hasOwnKey = (e: TransferItem) => e.hasOwnProperty('key');
-    this.list = this.list.map(e => {
-      if (listKeys.includes(e.key) && hasOwnKey(e)) {
-        if (ret.to === 'left') {
-          delete e.hide;
-        } else if (ret.to === 'right') {
-          e.hide = false;
-        }
-      }
-      return e;
+  showModalDescripcion(i){
+    const  modal = this.modalService.create({
+      nzTitle: 'Descripcion',
+      nzContent: DescripcionComponent,
+      nzFooter: null,
     });
   }
+
 }
+

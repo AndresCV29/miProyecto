@@ -12,20 +12,20 @@ const routes: Routes = [
         loadChildren: () => import('./client/client.module').then(n => n.ClientPageModule),
       },
       {
-        path: 'content',
-        loadChildren: () => import('./content/content.module').then(n => n.ContentPageModule),
+        path: 'shopall',
+        loadChildren: () => import('./shopall/shopall.module').then(n => n.ShopallPageModule),
       },
       {
-        path: 'docs',
-        loadChildren: () => import('./docs/docs.module').then(n => n.DocsPageModule),
+        path: 'xiaomi',
+        loadChildren: () => import('./xiaomi/xiaomi.module').then(n => n.XiaomiPageModule),
       },
       {
-        path: 'resources',
-        loadChildren: () => import('./resources/resources.module').then(n => n.ResourcesPageModule),
+        path: 'samsung',
+        loadChildren: () => import('./samsung/samsung.module').then(n => n.SamsungPageModule),
       },
       {
-        path: 'events',
-        loadChildren: () => import('./events/events.module').then(n => n.EventsPageModule),
+        path: 'contacto',
+        loadChildren: () => import('./contacto/contacto.module').then(n => n.ContactoPageModule),
       },
     ],
   }

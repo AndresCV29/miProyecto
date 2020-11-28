@@ -1,67 +1,32 @@
 <p>client works!</p>
 
-<nz-spin nzTip="Loading...">
-  <nz-alert nzType="info" nzMessage="Alert message title" nzDescription="Further details about the context of this alert."> </nz-alert>
-</nz-spin>
 
-<nz-spin [nzSpinning]="isSpinning" [nzDelay]="500">
-  <nz-alert [nzType]="'info'" [nzMessage]="'Alert message title'" [nzDescription]="'Further details about the context of this alert.'">
-  </nz-alert>
-</nz-spin>
-<br />
-<div>
-  Loading state：
-  <nz-switch [(ngModel)]="isSpinning"></nz-switch>
-</div>
+<nz-carousel nzAutoPlay>
+  <div nz-carousel-content *ngFor="let index of array" class="carousel">
+    <img src="./assets/carousel/{{index}}" style="width: 100%; height: 100%;">
+  </div>
+</nz-carousel>
 
-<br>
+<nz-row>
+  <nz-row *ngFor="let item of celulares.catalogo;let i=index">
+    <nz-col nzXs="24" nzSm="8" nzMd="4">
 
-<nz-transfer
-  [nzDataSource]="list"
-  [nzDisabled]="disabled"
-  [nzShowSearch]="showSearch"
-  [nzShowSelectAll]="false"
-  [nzRenderList]="[renderList, renderList]"
-  (nzSelectChange)="select($event)"
-  (nzChange)="change($event)"
->
-  <ng-template
-    #renderList
-    let-items
-    let-direction="direction"
-    let-stat="stat"
-    let-disabled="disabled"
-    let-onItemSelectAll="onItemSelectAll"
-    let-onItemSelect="onItemSelect"
-  >
-    <nz-table #t [nzData]="items" nzSize="small">
-      <thead>
-      <tr>
-        <th
-          [nzDisabled]="disabled"
-          [nzChecked]="stat.checkAll"
-          [nzIndeterminate]="stat.checkHalf"
-          (nzCheckedChange)="onItemSelectAll($event)"
-        ></th>
-        <th>Name</th>
-        <th *ngIf="direction === 'left'">Tag</th>
-        <th>Description</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let data of t.data" (click)="onItemSelect(data)">
-        <td [nzChecked]="data.checked" [nzDisabled]="disabled || data.disabled" (nzCheckedChange)="onItemSelect(data)"></td>
-        <td>{{ data.title }}</td>
-        <td *ngIf="direction === 'left'">
-          <nz-tag>{{ data.tag }}</nz-tag>
-        </td>
-        <td>{{ data.description }}</td>
-      </tr>
-      </tbody>
-    </nz-table>
-  </ng-template>
-</nz-transfer>
-<div style="margin-top: 8px;">
-  <nz-switch [(ngModel)]="disabled" nzCheckedChildren="disabled" nzUnCheckedChildren="disabled"></nz-switch>
-  <nz-switch [(ngModel)]="showSearch" nzCheckedChildren="showSearch" nzUnCheckedChildren="showSearch"></nz-switch>
-</div>
+    </nz-col>
+    <nz-col nzXs="24" nzSm="8" nzMd="16" nzSpan="6" *ngIf="celulares.catalogo[i].destacado=='si'" (click)="funcion(i)">
+      <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+        <nz-card-meta nzTitle="{{item.titulo}}" nzDescription="{{item.precio | currency: 'USD'}}"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img src="{{item.imagen}}"/>
+      </ng-template>
+    </nz-col>
+    <nz-col nzXs="24" nzSm="8" nzMd="4">
+
+    </nz-col>
+  </nz-row>
+</nz-row>
+
+
+
+
+
