@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CelularesService} from '../../../../services/celulares';
+import {CatalogoService} from '../../../../services/catalogo.service';
 import {DescripcionComponent} from '../../../shared/modal/descripcion/descripcion.component';
 import {NzModalService} from 'ng-zorro-antd';
 
@@ -7,14 +7,14 @@ import {NzModalService} from 'ng-zorro-antd';
   selector: 'app-client',
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.sass'],
-  providers: [CelularesService]
+  providers: [CatalogoService]
 })
 export class ClientComponent implements OnInit {
 
   pos: number;
 
   constructor(
-    public celulares: CelularesService,
+    public catalogo: CatalogoService,
     public modalService: NzModalService,
 
   ) { }
@@ -43,10 +43,10 @@ export class ClientComponent implements OnInit {
   funcion(i){
     localStorage.setItem('pos', JSON.stringify(i));
     this.pos=i;
-    this.showModalDescripcion(this.pos);
+    this.showModalDescripcion();
   }
 
-  showModalDescripcion(i){
+  showModalDescripcion(){
     const  modal = this.modalService.create({
       nzTitle: 'Descripcion',
       nzContent: DescripcionComponent,

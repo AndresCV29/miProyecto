@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginComponent} from '../../modal/login/login.component';
+import {NzModalService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public modalService: NzModalService,) { }
 
   ngOnInit(): void {
+  }
+
+  showModalLogin(){
+    const  modal = this.modalService.create({
+      nzTitle: 'Iniciar Sesion',
+      nzContent: LoginComponent,
+      nzFooter: null,
+    });
   }
 
 }

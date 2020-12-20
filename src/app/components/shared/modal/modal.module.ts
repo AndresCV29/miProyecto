@@ -4,6 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {LayoutModule} from '../../shared/layout/layout.module';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {DescripcionComponent} from './descripcion/descripcion.component';
+import { LoginComponent } from './login/login.component';
+import { AgregarComponent } from './agregar/agregar.component';
 
 
 @NgModule({
@@ -14,12 +16,14 @@ import {DescripcionComponent} from './descripcion/descripcion.component';
     LayoutModule,
     NgZorroAntdModule,
   ],
-  declarations: [DescripcionComponent],
+  declarations: [DescripcionComponent, LoginComponent, AgregarComponent],
   exports: [DescripcionComponent],
 
   entryComponents: [
-    DescripcionComponent
+    DescripcionComponent,
   ],
+
+  providers: [],
 
 })
 export class ModalModule {}

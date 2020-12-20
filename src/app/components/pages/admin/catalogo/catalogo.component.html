@@ -1,0 +1,72 @@
+<p>catalogo works!</p>
+<button nz-button nzType="primary" (click)="getAll()">Obtener todos</button><br><br>
+<!--<button nz-button nzType="primary" (click)="getOne()">getOne</button><br><br>-->
+<button nz-button nzType="default" (click)="showModalAgregar()">Agregar</button><br><br>
+<!--<nz-form-item>-->
+<!--  <nz-form-label nzRequired>ID</nz-form-label>-->
+<!--  <nz-form-control>-->
+<!--    <input nz-input placeholder="ID" [(ngModel)]="actualizar.product_id"  #id="ngModel" name="nombrep" required=""/>-->
+<!--    <button nz-button nzType="primary" (click)="getOne(actualizar)">Actualizar</button>-->
+<!--  </nz-form-control>-->
+<!--</nz-form-item>-->
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Nombre Proyecto</th>
+      <th>Titulo </th>
+      <th>Precio</th>
+      <th>Marca</th>
+      <th>Destacado</th>
+      <th>Imagen</th>
+      <th>Descripcion</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of this.catalogoService.catalogo2">
+    <td>{{item.catalogo2.product_id}}</td>
+    <td>{{item.catalogo2.nombre_proyecto}}</td>
+    <td>{{item.catalogo2titulo}}</td>
+    <td>{{item.catalogo2.precio}}</td>
+    <td>{{item.catalogo2.marca}}</td>
+    <td>{{item.catalogo2.destacado}}</td>
+    <td>{{item.catalogo2.imagen}}</td>
+    <td>{{item.catalogo2.descripcion}}</td>
+  </tbody>
+</table>
+
+<!--{{catalogoService.catalogo2 | json}}-->
+
+<!--<div class="row">-->
+<!--  <div class="col">-->
+<!--    <table>-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>#</th>-->
+<!--          <th>Nombre Proyecto</th>-->
+<!--          <th>Titulo</th>-->
+<!--          <th>Precio</th>-->
+<!--          <th>Marca</th>-->
+<!--          <th>Destacado</th>-->
+<!--          <th>Ruta Imagen</th>-->
+<!--          <th>Descripcion</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--        <td>PRUEBA</td>-->
+<!--      </tbody>-->
+
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->

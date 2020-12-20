@@ -1,8 +1,8 @@
 <p>samsung works!</p>
 
 <nz-row>
-  <nz-row *ngFor="let item of celulares.catalogo;let i=index">
-    <div nz-col nzSpan="6" *ngIf="celulares.catalogo[i].marca=='samsung'" (click)="funcion(i)">
+  <nz-row *ngFor="let item of catalogo.catalogo;let i=index">
+    <div nz-col nzSpan="6" *ngIf="catalogo.catalogo[i].marca=='samsung'" (click)="funcion(i)">
       <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
         <nz-card-meta nzTitle="{{item.titulo}}" nzDescription="{{item.precio | currency: 'USD'}}"></nz-card-meta>
       </nz-card>

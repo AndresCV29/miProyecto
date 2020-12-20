@@ -1,0 +1,38 @@
+<form nz-form #agregarProducto="ngForm">
+  <nz-form-item>
+    <nz-form-label nzRequired>Nobre del Proyecto</nz-form-label>
+    <input nz-input placeholder="Nombre del Proyecto" [(ngModel)]="agregar.nombre_proyecto "  #nombrep="ngModel" name="nombrep" required=""/>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Titulo del Producto</nz-form-label>
+    <input nz-input placeholder="Titulo del Producto" [(ngModel)]="agregar.titulo" #titulo="ngModel" name="titulo" required="" />
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Precio del Producto</nz-form-label>
+    <input nz-input placeholder="Precio del Producto" [(ngModel)]="agregar.precio" #precio="ngModel" name="precio" required="" />
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Marca del dispositivo</nz-form-label>
+    <input nz-input placeholder="Marca del dispositivo" [(ngModel)]="agregar.marca" #precio="ngModel" name="marca" required="" />
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Destacado</nz-form-label>
+    <input nz-input placeholder="Si o No" [(ngModel)]="agregar.destacado" #destacado="ngModel" name="destacado" required="" />
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Imagen</nz-form-label>
+    <input nz-input placeholder="Ruta de la Imagen, ejemplo: /assets/popular_phones/RN9P.jpg" [(ngModel)]="agregar.imagen" #imagen="ngModel" name="imagen" required="" />
+  </nz-form-item>
+  <nz-form-item>
+      <nz-form-label nzRequired>Descripcion del Producto</nz-form-label>
+      <textarea class="textArea" nz-input placeholder="Descripcion del Producto" [(ngModel)]="agregar.descripcion" #descripcion="ngModel" name="descripcion" required=""></textarea>
+  </nz-form-item>
+  <nz-row nzJustify="space-around">
+    <nz-col>
+      <button nz-button [nzType]="'primary'" (click)="enviarDatos()" [disabled]="!agregarProducto.form.valid" [class.active]="agregarProducto.form.valid" [class.disabled]="!agregarProducto.form.valid"><span>Guardar</span></button>
+    </nz-col>
+    <nz-col>
+      <button nz-button [nzType]="'primary'" (click)="cancelar()" ><span>Cancelar</span></button>
+    </nz-col>
+  </nz-row>
+</form>

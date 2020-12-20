@@ -12,6 +12,10 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('./components/pages/home/home.module').then(n => n.HomePageModule),
       },
+      {
+        path: 'admin',
+        loadChildren: () => import('./components/pages/admin/admin.module').then(n => n.AdminPageModule),
+      },
     ]
   },
   {

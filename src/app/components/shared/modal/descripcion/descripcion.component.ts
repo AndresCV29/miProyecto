@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {CelularesService} from '../../../../services/celulares';
+import {CatalogoService} from '../../../../services/catalogo.service';
 
 @Component({
   selector: 'app-descripcion',
   templateUrl: './descripcion.component.html',
   styleUrls: ['./descripcion.component.sass'],
-  providers: [CelularesService]
+  providers: [CatalogoService]
 })
 export class DescripcionComponent implements OnInit {
   pos: number;
 
   constructor(
-    public celulares: CelularesService,
+    public catalogo: CatalogoService,
   ) { }
 
   ngOnInit(): void {

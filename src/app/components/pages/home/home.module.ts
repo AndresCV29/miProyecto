@@ -5,6 +5,7 @@ import {HomeComponent} from './home.component';
 import {LayoutModule} from '../../shared/layout/layout.module';
 import {HomePageRoutingModule} from './home-routing.module';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {ModalModule} from '../../shared/modal/modal.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {NgZorroAntdModule} from 'ng-zorro-antd';
     LayoutModule,
     HomePageRoutingModule,
     NgZorroAntdModule,
+    ModalModule
   ],
   declarations: [HomeComponent],
   exports: []

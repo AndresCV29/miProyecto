@@ -7,12 +7,14 @@
   </div>
 </nz-carousel>
 
+
+
 <nz-row>
-  <nz-row *ngFor="let item of celulares.catalogo;let i=index">
+  <nz-row *ngFor="let item of catalogo.catalogo;let i=index">
     <nz-col nzXs="24" nzSm="8" nzMd="4">
 
     </nz-col>
-    <nz-col nzXs="24" nzSm="8" nzMd="16" nzSpan="6" *ngIf="celulares.catalogo[i].destacado=='si'" (click)="funcion(i)">
+    <nz-col nzXs="24" nzSm="8" nzMd="16" nzSpan="6" *ngIf="catalogo.catalogo[i].destacado=='si'" (click)="funcion(i)">
       <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
         <nz-card-meta nzTitle="{{item.titulo}}" nzDescription="{{item.precio | currency: 'USD'}}"></nz-card-meta>
       </nz-card>

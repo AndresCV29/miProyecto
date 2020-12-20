@@ -1,5 +1,48 @@
-export class CelularesService {
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from './auth.service';
 
+@Injectable({
+  providedIn: 'root'
+})
+export class CatalogoService {
+
+  state: boolean = false;
+
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthService
+
+  ) { }
+  getAll(){
+    return this.httpClient.get(this.authService.API+'product/all',{headers: this.authService.headers});
+  }
+
+  create(agregar){
+    return this.httpClient.post(this.authService.API+'add/product',agregar, {headers: this.authService.headers});
+  }
+
+  update(){
+    return this.httpClient.put(this.authService.API+'update/product',{'product_id': 1,'nombre_proyecto': 'pruebaAndres', 'titulo': 'pruebaAndres', 'descripcion': 'descripcionAndres', 'precio': 'andres', 'destacado': 'destacadoAndres', 'imagen': 'imagenAndres'}, {headers: this.authService.headers} );
+  }
+
+  delete(){
+    return this.httpClient.put(this.authService.API+'delete/product',{'municipality_id': 14}, {headers: this.authService.headers} );
+  }
+
+  disable(){
+    return this.httpClient.put(this.authService.API+'disable/product',{'municipality_id': 14}, {headers: this.authService.headers} );
+  }
+
+  enable(){
+    return this.httpClient.put(this.authService.API+'enable/product',{'municipality_id': 14}, {headers: this.authService.headers} );
+  }
+
+  getOne(actualizar){
+    return this.httpClient.post(this.authService.API+'query/product',actualizar, {headers: this.authService.headers} );
+  }
+
+  catalogo2: any;
 
   catalogo = [
     {
@@ -1303,4 +1346,6 @@ export class CelularesService {
     },
   ];
 
+
 }
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CelularesService} from '../../../../services/celulares';
+import {CatalogoService} from '../../../../services/catalogo.service';
 import {DescripcionComponent} from '../../../shared/modal/descripcion/descripcion.component';
 import {NzModalService} from 'ng-zorro-antd';
 
@@ -7,14 +7,14 @@ import {NzModalService} from 'ng-zorro-antd';
   selector: 'app-samsung',
   templateUrl: './samsung.component.html',
   styleUrls: ['./samsung.component.sass'],
-  providers: [CelularesService]
+  providers: [CatalogoService]
 })
 export class SamsungComponent implements OnInit {
 
   pos: number;
 
   constructor(
-    public celulares: CelularesService,
+    public catalogo: CatalogoService,
     public modalService: NzModalService,
 
   ) { }

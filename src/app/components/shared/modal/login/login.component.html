@@ -1,0 +1,20 @@
+<p>login works!</p>
+
+<form nz-form #Loginusuario="ngForm">
+  <nz-form-item>
+    <nz-form-label nzRequired>Codigo</nz-form-label>
+    <input nz-input placeholder="Codigo" [(ngModel)]="login.code "  #usuario="ngModel" name="usuario" required=""/>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Contraseña</nz-form-label>
+    <input nz-input placeholder="Contraseña" [(ngModel)]="login.password" #cont="ngModel" name="cont" required="" />
+  </nz-form-item>
+  <nz-row nzJustify="space-around">
+    <nz-col>
+      <button nz-button [nzType]="'primary'" (click)="form()" [disabled]="!Loginusuario.form.valid" [class.active]="Loginusuario.form.valid" [class.disabled]="!Loginusuario.form.valid"><span>Ingresar</span></button>
+    </nz-col>
+    <nz-col>
+      <button nz-button [nzType]="'primary'" (click)="cancelar()" ><span>Cancelar</span></button>
+    </nz-col>
+  </nz-row>
+</form>

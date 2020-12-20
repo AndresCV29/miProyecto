@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NzTabPosition} from 'ng-zorro-antd';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Contacto} from '../../../../model/contacto';
+import {CatalogoService} from '../../../../services/catalogo.service';
 
 class NzFormTooltipIcon {
 }
@@ -41,9 +42,10 @@ export class ContactoComponent implements OnInit {
 
   }
 
-  constructor(private fb: FormBuilder, private contacto: Contacto) {
-
-  }
+  constructor(
+    private fb: FormBuilder,
+    private contacto: Contacto,
+  ) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -52,9 +54,11 @@ export class ContactoComponent implements OnInit {
       phoneNumberPrefix: ['+86'],
       phoneNumber: [null, [Validators.required]],
       comment: ['', [Validators.required]]
-
     });
+
   }
+
+
 
 }
 

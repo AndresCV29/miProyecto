@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {CelularesService} from '../../../../services/celulares';
 import {NzModalService} from 'ng-zorro-antd';
 import {DescripcionComponent} from '../../../shared/modal/descripcion/descripcion.component';
+import {CatalogoService} from '../../../../services/catalogo.service';
 @Component({
   selector: 'app-xiaomi',
   templateUrl: './xiaomi.component.html',
   styleUrls: ['./xiaomi.component.sass'],
-  providers: [CelularesService]
+  providers: [CatalogoService]
 })
 export class XiaomiComponent implements OnInit {
   pos: number;
   constructor(
-    public celulares: CelularesService,
+    public catalogo: CatalogoService,
     public modalService: NzModalService,
   ) { }
 
